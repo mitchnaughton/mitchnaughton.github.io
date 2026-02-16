@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Dr. Mitch Naughton</title>
+    <meta name="description" content="Research resources, teaching materials, and open science contributions by Dr. Mitch Naughton, Lecturer in Exercise Physiology">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a4a4a;
+            --accent: #2d5a6b;
+            --light: #f8f8f8;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--primary);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .page-description {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 4rem;
+            max-width: 700px;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Resource Grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .resource-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .resource-card p {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: var(--primary);
+        }
+
+        /* Category Section */
+        .category {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .category h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .category ul {
+            list-style: none;
+        }
+
+        .category li {
+            padding: 0.75rem 0;
+            color: var(--secondary);
+            position: relative;
+            padding-left: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category li:last-child {
+            border-bottom: none;
+        }
+
+        .category li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .category a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .category a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Dr. Mitch Naughton</a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Resources</h1>
+        <p class="page-description">
+            A collection of research resources, methodological tools, and educational materials for students, researchers, and practitioners in sport and exercise science.
+        </p>
+
+        <section id="research-tools">
+            <h2>Research & Methodology</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="resource-icon">🔬</span>
+                    <h3>Systems Thinking Methods</h3>
+                    <p>Practical guidance and resources for applying systems thinking approaches in sport and exercise science research.</p>
+                    <a href="https://www.routledge.com/Systems-Thinking-Methods-in-Sport-Practical-Guidance-and-Case-Study-Applications/Mclean-Naughton-Read-Stanton-Hulme-Walker-Salmon/p/book/9781032194974" class="resource-link" target="_blank">Access Book →</a>
+                </div>
+
+                <div class="resource-card">
+                    <span class="resource-icon">📊</span>
+                    <h3>Workload Monitoring</h3>
+                    <p>Tools and protocols for quantifying external and internal loads in team sports, including collision dose assessment.</p>
+                    <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" class="resource-link" target="_blank">View Publications →</a>
+                </div>
+
+                <div class="resource-card">
+                    <span class="resource-icon">⚡</span>
+                    <h3>Fatigue Assessment</h3>
+                    <p>Methods and best practices for monitoring post-match fatigue in collision sports and team environments.</p>
+                    <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" class="resource-link" target="_blank">View Research →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="open-science">
+            <h2>Open Science & Reproducibility</h2>
+            <div class="category">
+                <h3>Open Science Practices</h3>
+                <ul>
+                    <li><a href="https://osf.io/" target="_blank">Open Science Framework (OSF) - Pre-registration and data sharing platform</a></li>
+                    <li><a href="https://www.cos.io/initiatives/registered-reports" target="_blank">Registered Reports - Publication format emphasizing rigor and transparency</a></li>
+                    <li><a href="https://www.psycharchives.org/" target="_blank">Open Access Repositories - Finding and sharing research</a></li>
+                    <li>Transparent reporting guidelines for sport and exercise science research</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="student-resources">
+            <h2>Student Resources</h2>
+            <div class="category">
+                <h3>For Prospective Students</h3>
+                <ul>
+                    <li>I am currently accepting Honours, Masters, and PhD students in areas including:
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li style="border: none; padding: 0.3rem 0;">Athlete workload quantification and monitoring</li>
+                            <li style="border: none; padding: 0.3rem 0;">Fatigue assessment in team sports</li>
+                            <li style="border: none; padding: 0.3rem 0;">Systems thinking applications in sport</li>
+                            <li style="border: none; padding: 0.3rem 0;">Human factors in sports science</li>
+                            <li style="border: none; padding: 0.3rem 0;">Performance analysis in collision sports</li>
+                        </ul>
+                    </li>
+                    <li><a href="mailto:mitch.naughton@newcastle.edu.au">Contact me to discuss potential research projects</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Research Skills Development</h3>
+                <ul>
+                    <li>Critical appraisal of sport science literature</li>
+                    <li>Statistical analysis for sports science research</li>
+                    <li>Research design and methodology</li>
+                    <li>Academic writing and publication strategies</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="collaboration">
+            <h2>Collaboration Opportunities</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <span class="resource-icon">🤝</span>
+                    <h3>Research Partnerships</h3>
+                    <p>I maintain active collaborations with national and international researchers and practitioners. Interested in collaborative research? Get in touch.</p>
+                    <a href="mailto:mitch.naughton@newcastle.edu.au" class="resource-link">Contact →</a>
+                </div>
+
+                <div class="resource-card">
+                    <span class="resource-icon">🏃</span>
+                    <h3>Applied Practice</h3>
+                    <p>Working with sporting organizations to translate research into practice, particularly in workload management and athlete monitoring.</p>
+                    <a href="mailto:mitch.naughton@newcastle.edu.au" class="resource-link">Learn More →</a>
+                </div>
+
+                <div class="resource-card">
+                    <span class="resource-icon">📚</span>
+                    <h3>Speaking & Workshops</h3>
+                    <p>Available for presentations, workshops, and educational sessions on sport science research methods and applied practice.</p>
+                    <a href="mailto:mitch.naughton@newcastle.edu.au" class="resource-link">Inquire →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="external-resources">
+            <h2>Recommended Resources</h2>
+            <div class="category">
+                <h3>Professional Organizations</h3>
+                <ul>
+                    <li><a href="https://www.essa.org.au/" target="_blank">Exercise & Sports Science Australia (ESSA)</a></li>
+                    <li><a href="https://www.nsca.com/" target="_blank">National Strength and Conditioning Association (NSCA)</a></li>
+                    <li><a href="https://www.uksca.org.uk/" target="_blank">UK Strength & Conditioning Association (UKSCA)</a></li>
+                    <li><a href="https://www.bases.org.uk/" target="_blank">British Association of Sport and Exercise Sciences (BASES)</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h3>Key Journals</h3>
+                <ul>
+                    <li><a href="https://journals.lww.com/nsca-jscr/" target="_blank">Journal of Strength and Conditioning Research</a></li>
+                    <li><a href="https://www.springer.com/journal/40279" target="_blank">Sports Medicine</a></li>
+                    <li><a href="https://bjsm.bmj.com/" target="_blank">British Journal of Sports Medicine</a></li>
+                    <li><a href="https://www.sciencedirect.com/journal/journal-of-science-and-medicine-in-sport" target="_blank">Journal of Science and Medicine in Sport</a></li>
+                    <li><a href="https://www.frontiersin.org/journals/sports-and-active-living" target="_blank">Frontiers in Sports and Active Living</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dr. Mitch Naughton. All rights reserved.</p>
+    </footer>
+</body>
+</html>

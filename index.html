@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Mitch Naughton | Sports Science Researcher</title>
+    <meta name="description" content="Dr. Mitch Naughton - Lecturer in Exercise Physiology at the University of Newcastle, Australia">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a4a4a;
+            --accent: #2d5a6b;
+            --light: #f8f8f8;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--primary);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 2rem 6rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .hero-text h1 strong {
+            font-weight: 600;
+            display: block;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-accent {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent) 0%, #1a4552 100%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 6rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .expertise {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .expertise h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            padding: 0.5rem 0;
+            color: var(--secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .expertise-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Publications Section */
+        .publication {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .publication:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .publication-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .publication-authors {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-journal {
+            color: var(--accent);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .publication-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .publication-link:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .contact-card p {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 300px;
+                margin-top: 2rem;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 6rem 1rem 4rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Dr. Mitch Naughton</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Sports Science <strong>& Research</strong>
+                </h1>
+                <p>
+                    Lecturer in Exercise Physiology at the University of Newcastle, specializing in athlete workload quantification, fatigue assessment, and systems thinking in sport and exercise science.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">807</span>
+                        <span class="stat-label">Citations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="profile.jpg" alt="Dr. Mitch Naughton" class="profile-image">
+                <div class="visual-accent"></div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I am a Lecturer in Exercise Physiology at the University of Newcastle, Australia, with a PhD from the University of the Sunshine Coast (2023). My doctoral research explored how locomotor and collision workloads are quantified and their influence on fatigue in rugby football codes.
+                    </p>
+                    <p>
+                        My current research program focuses on understanding and quantifying athlete workloads in team sports, examining how fatigue is measured in complex environments, and applying systems thinking and human factors methods to sport and exercise science. I maintain active national and international collaborations with applied sports science practitioners and research academics.
+                    </p>
+                    <p>
+                        I am passionate about modern meta-science practices, including open science initiatives such as open access publishing and pre-registration. I am available for supervision of Honours, Masters, and PhD students.
+                    </p>
+                </div>
+                <div class="expertise">
+                    <h3>Research Expertise</h3>
+                    <ul class="expertise-list">
+                        <li>Sports Science</li>
+                        <li>Exercise Physiology</li>
+                        <li>Performance Analysis</li>
+                        <li>Athlete Workload Quantification</li>
+                        <li>Fatigue Assessment</li>
+                        <li>Systems Thinking in Sport</li>
+                        <li>Human Factors Methods</li>
+                        <li>Collision Sport Physiology</li>
+                        <li>Open Science Practices</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2>Research Focus</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        My research explores the complex interplay between training load, competition demands, and athlete fatigue in team sports. Through a systems thinking approach, I investigate how external loads influence post-match recovery and performance in collision sports, particularly rugby league, rugby union, and Australian Rules football.
+                    </p>
+                    <p>
+                        I am co-author of the book <em>Systems Thinking Methods in Sport: Practical Guidance and Case Study Applications</em> (Routledge, 2025), which provides a comprehensive guide to applying contemporary systems thinking methods in sport settings. The book demonstrates how to understand and optimize the behavior of complex systems inherent in sport performance, injury prevention, and team function.
+                    </p>
+                    <p>
+                        Current projects include developing novel methodologies for quantifying collision dose, validating automated tackle detection systems, and identifying barriers to effective fatigue monitoring in professional rugby environments. My work emphasizes translating research findings into practical applications for coaches, practitioners, and athletes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            
+            <div class="publication">
+                <div class="publication-title">'Tackling' safety through a systems thinking approach: building safety culture within sport</div>
+                <div class="publication-authors">Sharief Hendricks, Mitchell Naughton, Paul Matthew Salmon, Scott Michael McLean</div>
+                <div class="publication-journal">Article, April 2025</div>
+                <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" class="publication-link" target="_blank">View on Google Scholar →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">The effect of match-play on acute post-match neuromuscular fatigue following Australian Football League Women's (AFLW) competition</div>
+                <div class="publication-authors">Emma Wilkinson, Tannath J Scott, Matthew Green, Mitchell Naughton</div>
+                <div class="publication-journal">Article, January 2025</div>
+                <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" class="publication-link" target="_blank">View on Google Scholar →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Determining the barriers to the use of post-match fatigue monitoring in the rugby codes: A Concept Mapping study</div>
+                <div class="publication-authors">Mitch Naughton, Tannath Scott, Dan Weaving, Scott McLean, Colin Solomon</div>
+                <div class="publication-journal">Topics in Exercise Science and Kinesiology, Vol. 5: Iss. 1, Article 3, 2024</div>
+                <a href="https://digitalscholarship.unlv.edu/scholarship_kin/vol5/iss1/3/" class="publication-link" target="_blank">View Publication →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Systems Thinking Methods in Sport: Practical Guidance and Case Study Applications</div>
+                <div class="publication-authors">Scott McLean, Mitchell Naughton, Gemma Read, Neville A. Stanton, et al.</div>
+                <div class="publication-journal">Routledge, 2025 (Book)</div>
+                <a href="https://www.routledge.com/Systems-Thinking-Methods-in-Sport-Practical-Guidance-and-Case-Study-Applications/Mclean-Naughton-Read-Stanton-Hulme-Walker-Salmon/p/book/9781032194974" class="publication-link" target="_blank">View Book →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">The validity of automated tackle detection in women's rugby league</div>
+                <div class="publication-authors">C. Cummins, G. Charlton, M. Naughton, B. Jones, C. Minahan, A. Murphy</div>
+                <div class="publication-journal">Journal of Strength and Conditioning Research, 2020</div>
+                <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" class="publication-link" target="_blank">View on Google Scholar →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Quantifying the Collision Dose in Rugby League: A Systematic Review, Meta-analysis, and Critical Analysis</div>
+                <div class="publication-authors">Mitchell Naughton, et al.</div>
+                <div class="publication-journal">Systematic Review</div>
+                <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" class="publication-link" target="_blank">View on Google Scholar →</a>
+            </div>
+
+            <p style="margin-top: 2rem; color: var(--secondary);">
+                For a complete list of publications, please visit my 
+                <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" target="_blank" style="color: var(--accent);">Google Scholar profile</a> or 
+                <a href="https://www.researchgate.net/profile/Mitchell-Naughton" target="_blank" style="color: var(--accent);">ResearchGate</a>.
+            </p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:mitch.naughton@newcastle.edu.au">mitch.naughton@newcastle.edu.au</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+61413288621">0413 288 621</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🏛️</div>
+                    <h3>Institution</h3>
+                    <p>School of Biomedical Sciences and Pharmacy<br>
+                    College of Health, Medicine and Wellbeing<br>
+                    University of Newcastle, Australia</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🔬</div>
+                    <h3>Academic Profiles</h3>
+                    <p>
+                        <a href="https://scholar.google.com/citations?user=e_IVxmsAAAAJ&hl=en" target="_blank">Google Scholar</a><br>
+                        <a href="https://www.researchgate.net/profile/Mitchell-Naughton" target="_blank">ResearchGate</a><br>
+                        <a href="https://www.newcastle.edu.au/profile/mitch-naughton" target="_blank">University Profile</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dr. Mitch Naughton. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
